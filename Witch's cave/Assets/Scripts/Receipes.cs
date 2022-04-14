@@ -5,15 +5,17 @@ using UnityEngine;
 public class Receipes : MonoBehaviour
 {
     [SerializeField] float timeUntilCancel;
-    [SerializeField] float pointsWhenComplete;
+    [SerializeField] int pointsWhenComplete;
     [SerializeField] string nameOfReceipe;
     GameObject receipeLineObject;
     ReceipeLine receipeLine;
+    Score score;
     // Start is called before the first frame update
     void Start()
     {
         receipeLineObject = GameObject.FindGameObjectWithTag("ReceipeLine");
         receipeLine = receipeLineObject.GetComponent<ReceipeLine>();
+        score = GameObject.FindGameObjectWithTag("Score").GetComponent<Score>();
     }
 
     // Update is called once per frame
@@ -24,8 +26,7 @@ public class Receipes : MonoBehaviour
 
     public void FinishOrder()
     {
-        //UpdateScore(pointsWhenComplete);
-        Debug.Log("Destroyed");
+        score.UpdateScore(pointsWhenComplete);
         Destroy(this.gameObject);
     }
 
