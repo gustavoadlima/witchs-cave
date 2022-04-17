@@ -38,11 +38,9 @@ public class ReceipeLine : MonoBehaviour
     public void CheckIfItIsOnActiveLine(GameObject objectToCheck)
     {
         foreach (var name in activeLine) {
-            Debug.Log(name.GetComponent<Receipes>().GetNameOfReceipe());
-            Debug.Log(objectToCheck.GetComponent<Item>().itemName);
             if (name.GetComponent<Receipes>().GetNameOfReceipe().Equals(objectToCheck.GetComponent<Item>().itemName))
             {
-                RemoveToControlLine(objectToCheck);
+                RemoveToControlLine(name);
                 name.GetComponent<Receipes>().FinishOrder();
                 return;
             }
