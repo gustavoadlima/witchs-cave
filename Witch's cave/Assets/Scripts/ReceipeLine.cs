@@ -15,15 +15,17 @@ public class ReceipeLine : MonoBehaviour
 
     void Start()
     {
-
+        Debug.Log("começou");
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("Contando");
         timeCounter = Mathf.RoundToInt(Time.time);
         if (index < receipes.Count)
         {
+            Debug.Log("Primeiro if");
             if (timeCounter == timeToSpawn[index])
             {
                 var newReceipe = GameObject.Instantiate(receipes[index]);

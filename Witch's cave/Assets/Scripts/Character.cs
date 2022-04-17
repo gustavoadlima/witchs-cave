@@ -16,6 +16,7 @@ public class Character : MonoBehaviour
 
     [SerializeField] Transform holdSpot;
     [SerializeField] LayerMask pickUpLayer;
+    [SerializeField] LayerMask createLayer;
     public Vector3 Direction { get; set; }
     private GameObject itemHolding;
 
@@ -35,13 +36,15 @@ public class Character : MonoBehaviour
         //aqui começa o script de pegar objeto
         if (Input.GetKeyDown(KeyCode.E))
         {
+            Debug.Log("Criar o item");
+            CreateItem();
+            Debug.Log("Pegar o item");
             AttachItem();
         }
     }
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement *moveSpeed * Time.fixedDeltaTime);
-        
+        rb.MovePosition(rb.position + movement *moveSpeed * Time.fixedDeltaTime); 
     }
 
     private void AttachItem()
@@ -60,7 +63,7 @@ public class Character : MonoBehaviour
         }
         else
         {
-            Collider2D pickUpItem = Physics2D.OverlapCircle(transform.position + Direction, 2f, pickUpLayer);
+            Collider2D pickUpItem = Physics2D.OverlapCircle(transform.position + Direction, 1f, pickUpLayer);
             if (pickUpItem)
             {
 
@@ -75,6 +78,16 @@ public class Character : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void CreateItem()
+    {
+        Collider2D createItem = Physics2D.OverlapCircle(transform.position + Direction, 1f, createLayer);
+        if (createItem)
+        {
+            createItem.GetComponent<SpawnItem>().createItem();
+        }
+        
     }
 
     public void SetIsHoldingSomething(bool value)

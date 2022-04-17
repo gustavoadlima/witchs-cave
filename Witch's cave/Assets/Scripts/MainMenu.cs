@@ -48,7 +48,7 @@ public class MainMenu : MonoBehaviour
     }
     public void SetVolume(float volume)
     {
-        audioMixer.SetFloat("MainVolume", volume);
+        audioMixer.SetFloat("MainVolume", Mathf.Log10(volume) * 20);
     }
     public void SetFullScreen(bool isFullScreen)
     {

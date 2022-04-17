@@ -9,6 +9,7 @@ public class PrepareRecipe : MonoBehaviour
     [SerializeField] GameObject Receipe1;
     [SerializeField] GameObject Receipe2;
     [SerializeField] GameObject Receipe3;
+    [SerializeField] GameObject Receipe4;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,10 +35,6 @@ public class PrepareRecipe : MonoBehaviour
             }
 
         }
-        else
-        {
-            Debug.Log("Aqui não pode");
-        }
     }
 
     void prepareItem(List<string> ingredientes)
@@ -47,28 +44,69 @@ public class PrepareRecipe : MonoBehaviour
         {
             recipe += obj;
         }
+        GameObject objToInstantiate;
         switch (recipe){
             case "PataPoLiquido":
-                GameObject.Instantiate(Receipe1);
+                objToInstantiate = GameObject.Instantiate(Receipe1);
                 break;
             case "PataLiquidoPo":
-                GameObject.Instantiate(Receipe1);
+                objToInstantiate = GameObject.Instantiate(Receipe1);
                 break;
             case "PoPataLiquido":
-                GameObject.Instantiate(Receipe1);
+                objToInstantiate = GameObject.Instantiate(Receipe1);
                 break;
             case "PoLiquidoPata":
-                GameObject.Instantiate(Receipe1);
+                objToInstantiate = GameObject.Instantiate(Receipe1);
                 break;
             case "LiquidoPoPata":
-                GameObject.Instantiate(Receipe1);
+                objToInstantiate = GameObject.Instantiate(Receipe1);
                 break;
             case "LiquidoPataPo":
-                GameObject.Instantiate(Receipe1);
+                objToInstantiate = GameObject.Instantiate(Receipe1);
                 break;
+
+            case "AsaCogumeloLiquido":
+                objToInstantiate = GameObject.Instantiate(Receipe2);
+                break;
+            case "AsaLiquidoCogumelo":
+                objToInstantiate = GameObject.Instantiate(Receipe2);
+                break;
+            case "CogumeloAsaLiquido":
+                objToInstantiate = GameObject.Instantiate(Receipe2);
+                break;
+            case "CogumeloLiquidoAsa":
+                objToInstantiate = GameObject.Instantiate(Receipe2);
+                break;
+            case "LiquidoAsaCogumelo":
+                objToInstantiate = GameObject.Instantiate(Receipe2);
+                break;
+            case "LiquidoCogumeloAsa":
+                objToInstantiate = GameObject.Instantiate(Receipe2);
+                break;
+
+            case "SafiraCogumeloLiquido":
+                objToInstantiate = GameObject.Instantiate(Receipe3);
+                break;
+            case "SafiraLiquidoCogumelo":
+                objToInstantiate = GameObject.Instantiate(Receipe3);
+                break;
+            case "CogumeloSafiraLiquido":
+                objToInstantiate = GameObject.Instantiate(Receipe3);
+                break;
+            case "CogumeloLiquidoSafira":
+                objToInstantiate = GameObject.Instantiate(Receipe3);
+                break;
+            case "LiquidoSafiraCogumelo":
+                objToInstantiate = GameObject.Instantiate(Receipe3);
+                break;
+            case "LiquidoCogumeloSafira":
+                objToInstantiate = GameObject.Instantiate(Receipe3);
+                break;
+
             default:
-                Debug.Log("Dubious food");
+                objToInstantiate = GameObject.Instantiate(Receipe4);
                 break;
         }
+        objToInstantiate.transform.position = transform.position;
     }
 }
