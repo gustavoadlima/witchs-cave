@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Receipes : MonoBehaviour
 {
-    [SerializeField] float timeUntilCancel;
+    [SerializeField] public float timeUntilCancel;
     [SerializeField] int pointsWhenComplete;
     [SerializeField] string nameOfReceipe;
     GameObject receipeLineObject;
@@ -41,7 +41,6 @@ public class Receipes : MonoBehaviour
         timeUntilCancel -= Time.deltaTime;
         if(timeUntilCancel <= 0)
         {
-            Debug.Log(GetNameOfReceipe());
             CancelOrder();
         }
     }
@@ -49,5 +48,10 @@ public class Receipes : MonoBehaviour
     public string GetNameOfReceipe()
     {
         return nameOfReceipe;
+    }
+
+    public float GetMaxTime()
+    {
+        return timeUntilCancel;
     }
 }

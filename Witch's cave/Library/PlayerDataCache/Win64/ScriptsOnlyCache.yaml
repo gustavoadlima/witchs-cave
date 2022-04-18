@@ -10,6 +10,7 @@ ScriptsOnlyBuild:
     - Receipes
     - Score
     - SpawnItem
+    - timeRemaining
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
@@ -116,13 +117,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3372}
     - Class: 114
-      Script: {instanceID: 3892}
+      Script: {instanceID: 3572}
     - Class: 114
-      Script: {instanceID: 3912}
+      Script: {instanceID: 3894}
     - Class: 114
-      Script: {instanceID: 4232}
+      Script: {instanceID: 3914}
     - Class: 114
-      Script: {instanceID: 4574}
+      Script: {instanceID: 4234}
+    - Class: 114
+      Script: {instanceID: 4576}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -205,15 +208,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3492}
     - Class: 114
-      Script: {instanceID: 3892}
+      Script: {instanceID: 3894}
     - Class: 114
-      Script: {instanceID: 4552}
+      Script: {instanceID: 4554}
     - Class: 114
-      Script: {instanceID: 4760}
+      Script: {instanceID: 4762}
     - Class: 114
-      Script: {instanceID: 4898}
+      Script: {instanceID: 4900}
     - Class: 114
-      Script: {instanceID: 5296}
+      Script: {instanceID: 5298}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -245,7 +248,7 @@ ScriptsOnlyBuild:
     className: Image
   - hash:
       serializedVersion: 2
-      Hash: 8f670f726f6bd420da92ce18bd732cf0
+      Hash: 921e450e32d1469538c5bdf4fcb98b81
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PrepareRecipe
@@ -371,7 +374,7 @@ ScriptsOnlyBuild:
     className: CinemachinePixelPerfect
   - hash:
       serializedVersion: 2
-      Hash: 4b01584c6408707dd60883025dc9cb65
+      Hash: d7b757e3344dc6e75d8832c43585f94d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ReceipeLine
@@ -525,6 +528,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.2D.SpriteShape.Runtime.dll
     namespaceName: UnityEngine.U2D
     className: SpriteShapeController
+  - hash:
+      serializedVersion: 2
+      Hash: 8668362f802a9742ce9d432d5df35fce
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: timeRemaining
   - hash:
       serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a

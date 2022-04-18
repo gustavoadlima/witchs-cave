@@ -88,6 +88,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d3e4a0c9bf52244682722cf8f7419b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeUntilCancel: 20
+  timeUntilCancel: 25
   pointsWhenComplete: 100
   nameOfReceipe: Agility

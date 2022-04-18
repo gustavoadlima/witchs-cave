@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ReceipeLine : MonoBehaviour
@@ -7,7 +8,6 @@ public class ReceipeLine : MonoBehaviour
     [SerializeField] List<GameObject> receipes;
     [SerializeField] List<int> timeToSpawn;
     [SerializeField] GameObject receipesLine;
-    [SerializeField] int LevelMaxTimeInSeconds;
     int timeCounter = 0;
     int index;
 
@@ -15,17 +15,14 @@ public class ReceipeLine : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("começou");
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Contando");
         timeCounter = Mathf.RoundToInt(Time.time);
         if (index < receipes.Count)
         {
-            Debug.Log("Primeiro if");
             if (timeCounter == timeToSpawn[index])
             {
                 var newReceipe = GameObject.Instantiate(receipes[index]);
@@ -57,6 +54,13 @@ public class ReceipeLine : MonoBehaviour
     public void RemoveToControlLine(GameObject nonActiveReceipe)
     {
         activeLine.Remove(nonActiveReceipe);
+    }
+
+    public float MaxTimeOfLevel()
+    {
+        float lastItem = timeToSpawn.Last();
+        float maxTimeLastItem = receipes.Last().gameObject.GetComponent<Receipes>().timeUntilCancel;
+        return lastItem + maxTimeLastItem + 2;
     }
 
     
