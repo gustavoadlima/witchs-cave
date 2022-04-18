@@ -24,7 +24,7 @@ public class timeRemaining : MonoBehaviour
     void Update()
     {
         timeRemainigTxt.text = timeToDisplay.ToString();
-        timeCounter = Mathf.RoundToInt(Time.time);
+        timeCounter = Mathf.RoundToInt(Time.timeSinceLevelLoad);
         timeToDisplay = maxTime - timeCounter;
         if(timeToDisplay < 0)
         {

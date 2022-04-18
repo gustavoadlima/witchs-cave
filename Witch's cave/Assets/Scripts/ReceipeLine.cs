@@ -15,12 +15,16 @@ public class ReceipeLine : MonoBehaviour
 
     void Start()
     {
+
     }
+
+    
 
     // Update is called once per frame
     void Update()
     {
-        timeCounter = Mathf.RoundToInt(Time.time);
+
+        timeCounter = Mathf.RoundToInt(Time.timeSinceLevelLoad);
         if (index < receipes.Count)
         {
             if (timeCounter == timeToSpawn[index])
