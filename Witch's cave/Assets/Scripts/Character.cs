@@ -36,10 +36,13 @@ public class Character : MonoBehaviour
         //aqui começa o script de pegar objeto
         if (Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("Criar o item");
             CreateItem();
-            Debug.Log("Pegar o item");
+
+        }
+        if (Input.GetKeyUp(KeyCode.E))
+        {
             AttachItem();
+
         }
     }
     private void FixedUpdate()
