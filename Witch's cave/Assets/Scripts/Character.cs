@@ -32,7 +32,11 @@ public class Character : MonoBehaviour
         {
             Direction = movement.normalized;
         }
-
+        if(Input.GetAxisRaw("Horizontal") == 1 || Input.GetAxisRaw("Horizontal") == -1 || Input.GetAxisRaw("Vertical") == 1 || Input.GetAxisRaw("Vertical") == -1 ) 
+        {
+            animator.SetFloat("lastHorizontal", movement.x);
+            animator.SetFloat("lastVertical", movement.y);
+        }
         //aqui começa o script de pegar objeto
         if (Input.GetKeyDown(KeyCode.E))
         {
