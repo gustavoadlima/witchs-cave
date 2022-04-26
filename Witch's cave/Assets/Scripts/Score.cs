@@ -28,6 +28,7 @@ public class Score : MonoBehaviour
         scoreNum += pointsToSum;
         updateScoreTxt();
         sliderScore.value = (scoreNum * 100) / maxScore;
+        scoreTxt.gameObject.GetComponent<Animation>().Play("ScoreTxt");
     }
 
     public void updateScoreTxt()

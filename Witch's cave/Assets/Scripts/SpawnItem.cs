@@ -17,10 +17,11 @@ public class SpawnItem : MonoBehaviour
         
     }
 
-    public void createItem()
+    public bool CreateItem()
     {
         var obj = GameObject.Instantiate(objectToSpawn);
         obj.transform.position = transform.position + new Vector3(0,0,0);
+        return true;
     }
 
 

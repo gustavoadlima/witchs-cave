@@ -40,21 +40,23 @@ public class Character : MonoBehaviour
         //aqui começa o script de pegar objeto
         if (Input.GetKeyDown(KeyCode.E))
         {
-            CreateItem();
-
+            StartCoroutine(ItemC());
         }
-        if (Input.GetKeyUp(KeyCode.E))
-        {
-            AttachItem();
 
-        }
     }
     private void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement *moveSpeed * Time.fixedDeltaTime); 
     }
 
-    private void AttachItem()
+    IEnumerator ItemC()
+    {
+        CreateItem();
+        yield return new WaitForSeconds(.002f);
+        AttachItem();
+    }
+
+    public void AttachItem()
     {
         if (itemHolding)
         {
@@ -70,7 +72,7 @@ public class Character : MonoBehaviour
         }
         else
         {
-            Collider2D pickUpItem = Physics2D.OverlapCircle(transform.position + Direction, 1f, pickUpLayer);
+            Collider2D pickUpItem = Physics2D.OverlapCircle(transform.position + Direction, .8f, pickUpLayer);
             if (pickUpItem)
             {
 
@@ -87,14 +89,13 @@ public class Character : MonoBehaviour
         }
     }
 
-    private void CreateItem()
+    public void CreateItem()
     {
-        Collider2D createItem = Physics2D.OverlapCircle(transform.position + Direction, 1f, createLayer);
+        Collider2D createItem = Physics2D.OverlapCircle(transform.position + Direction, .8f, createLayer);
         if (createItem)
         {
-            createItem.GetComponent<SpawnItem>().createItem();
+            createItem.GetComponent<SpawnItem>().CreateItem();
         }
-        
     }
 
     public void SetIsHoldingSomething(bool value)
