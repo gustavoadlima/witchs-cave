@@ -11,9 +11,11 @@ public class timeRemaining : MonoBehaviour
     int timeCounter = 0;
     int maxTime = 0;
     int timeToDisplay = 0;
+    public int unlockNextLevel;
     // Start is called before the first frame update
     void Start()
     {
+        unlockNextLevel = SceneManager.GetActiveScene().buildIndex + 1;
         timeCounter = 0;
         maxTime = 0;
         timeToDisplay = 0;
@@ -34,7 +36,9 @@ public class timeRemaining : MonoBehaviour
 
     void endLevel()
     {
-        SceneManager.LoadScene("MainMenu");
+        Debug.Log(unlockNextLevel);
+        PlayerPrefs.SetInt("levelAt", unlockNextLevel);
+        SceneManager.LoadScene("WorldMap");
     }
 
 }

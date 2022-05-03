@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    [SerializeField]public float moveSpeed = 5f;
+    [SerializeField]public float moveSpeed = 6f;
 
     public Rigidbody2D rb;
     public Animator animator;
@@ -46,14 +46,26 @@ public class Character : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement *moveSpeed * Time.fixedDeltaTime); 
+        rb.MovePosition(rb.position + movement.normalized *moveSpeed * Time.fixedDeltaTime); 
     }
 
     IEnumerator ItemC()
     {
-        CreateItem();
-        yield return new WaitForSeconds(.002f);
-        AttachItem();
+        if (itemHolding)
+        {
+            AttachItem();
+        }
+        else
+        {
+            AttachItem();
+            yield return new WaitForSeconds(.001f);
+            if (!itemHolding)
+            {
+            CreateItem();
+            yield return new WaitForSeconds(.001f);
+            AttachItem();
+            }
+        }
     }
 
     public void AttachItem()
