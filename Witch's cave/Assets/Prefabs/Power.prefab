@@ -370,6 +370,8 @@ MonoBehaviour:
   nameOfReceipe: Power
   timeSlider: {fileID: 789562201727407944}
   animationFinished: {fileID: 0}
+  winnigSound: {fileID: 0}
+  cashSound: {fileID: 0}
 --- !u!111 &-8332734798481810403
 Animation:
   m_ObjectHideFlags: 0

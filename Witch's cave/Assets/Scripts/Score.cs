@@ -7,9 +7,9 @@ using UnityEngine.UI;
 public class Score : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI scoreTxt;
-    [SerializeField] int maxScore;
+    [SerializeField] public int maxScore;
     [SerializeField] Slider sliderScore;
-    int scoreNum = 0;
+    public int scoreNum = 0;
     // Start is called before the first frame update
     void Start()
     {

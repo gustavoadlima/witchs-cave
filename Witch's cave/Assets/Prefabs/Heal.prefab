@@ -95,6 +95,8 @@ MonoBehaviour:
   nameOfReceipe: Heal
   timeSlider: {fileID: 6514339208634936396}
   animationFinished: {fileID: 0}
+  winnigSound: {fileID: 0}
+  cashSound: {fileID: 0}
 --- !u!111 &-9179461173475042283
 Animation:
   m_ObjectHideFlags: 0

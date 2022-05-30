@@ -9,6 +9,8 @@ TagManager:
   - ScoreText
   - Score
   - IngredientePocao
+  - OrderFinished
+  - Sfx
   layers:
   - Default
   - TransparentFX

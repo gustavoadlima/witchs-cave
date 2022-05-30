@@ -184,6 +184,8 @@ MonoBehaviour:
   nameOfReceipe: Agility
   timeSlider: {fileID: 6604758794006889071}
   animationFinished: {fileID: 0}
+  winnigSound: {fileID: 0}
+  cashSound: {fileID: 8300000, guid: e1fb8380ed165b04b9e952cc63d37e6b, type: 3}
 --- !u!111 &-723293881092047752
 Animation:
   m_ObjectHideFlags: 0

@@ -13,12 +13,16 @@ public class Receipes : MonoBehaviour
     [SerializeField] Animation animationFinished;
     GameObject receipeLineObject;
     ReceipeLine receipeLine;
+    GameObject orderFinishedObject;
+    OrderFinish orderFinished;
     Score score;
     // Start is called before the first frame update
     void Start()
     {
         receipeLineObject = GameObject.FindGameObjectWithTag("ReceipeLine");
         receipeLine = receipeLineObject.GetComponent<ReceipeLine>();
+        orderFinishedObject = GameObject.FindGameObjectWithTag("OrderFinished");
+        orderFinished = orderFinishedObject.GetComponent<OrderFinish>();
         score = GameObject.FindGameObjectWithTag("Score").GetComponent<Score>();
         timeSlider.maxValue = timeUntilCancel;
     }
@@ -33,11 +37,13 @@ public class Receipes : MonoBehaviour
     public void FinishOrder()
     {
         score.UpdateScore(pointsWhenComplete);
+        orderFinished.PlayCashSound();
         Destroy(this.gameObject);
     }
 
     public void CancelOrder()
     {
+        orderFinished.PlayCancelSound();
         receipeLine.RemoveToControlLine(this.gameObject);     
         Destroy(this.gameObject);
     }

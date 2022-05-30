@@ -10,10 +10,12 @@ public class PrepareRecipe : MonoBehaviour
     [SerializeField] GameObject Receipe2;
     [SerializeField] GameObject Receipe3;
     [SerializeField] GameObject Receipe4;
+    GameObject Sfx;
+    [SerializeField] AudioClip spawnSoundClip;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Sfx = GameObject.FindGameObjectWithTag("Sfx");
     }
 
     // Update is called once per frame
@@ -28,9 +30,11 @@ public class PrepareRecipe : MonoBehaviour
         {
             ingredientesInside.Add(collision.gameObject.GetComponent<Item>().itemName);
             Destroy(collision.gameObject);
+            Sfx.GetComponent<AudioSource>().PlayOneShot(spawnSoundClip);
             if (ingredientesInside.Count >= 3)
             {
                 prepareItem(ingredientesInside);
+                Sfx.GetComponent<AudioSource>().PlayOneShot(spawnSoundClip);
                 ingredientesInside.Clear();
             }
 

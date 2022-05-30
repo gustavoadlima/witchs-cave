@@ -19,7 +19,10 @@ public class MainMenu : MonoBehaviour
         for(int i=0; i<resolutions.Length; i++)
         {
             string option = resolutions[i].width + "x" + resolutions[i].height + "@"+resolutions[i].refreshRate;
-            options.Add(option);
+            if(resolutions[i].width >= 1280)
+            {
+                options.Add(option);
+            }
             if(resolutions[i].width == Screen.currentResolution.width && 
                 resolutions[i].height == Screen.currentResolution.height)
             {
@@ -62,5 +65,7 @@ public class MainMenu : MonoBehaviour
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width,resolution.height, Screen.fullScreen);
     }
+
+
 
 }
